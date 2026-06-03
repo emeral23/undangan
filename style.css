@@ -1,0 +1,623 @@
+/* Global Reset & Base Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f4;
+    color: #2c3e50;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+section {
+    padding: 100px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Custom Header Titles */
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.title h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    color: #2d5a27;
+    letter-spacing: 2px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #c5a059, transparent);
+}
+
+.title .subtitle {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Cover / Welcome Section Styles */
+.cover {
+    height: 100vh;
+    background: linear-gradient(rgba(45, 90, 39, 0.65), rgba(30, 50, 25, 0.85)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1500');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.cover-content {
+    max-width: 650px;
+}
+
+.cover .pre-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #e5c158;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.cover h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    color: #ffffff;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.cover .decorator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.cover .decorator .line {
+    width: 60px;
+    height: 1px;
+    background-color: rgba(229, 193, 88, 0.5);
+}
+
+.cover .decorator .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #e5c158;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.cover .date {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-bottom: 35px;
+    color: #f5f5f5;
+}
+
+/* Premium Buttons Layout */
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #c5a059;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #b38f46;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.6);
+}
+
+.btn-sm {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #2d5a27;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-sm:hover {
+    background: #1e3d1a;
+}
+
+/* Hero / Greeting Presentation */
+.hero {
+    background-color: #ffffff;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.hero .bismillah {
+    font-family: 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2d5a27;
+    margin-bottom: 25px;
+}
+
+.hero .greeting-text {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.hero .intro {
+    font-size: 15px;
+    color: #555;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Profile Section Styling */
+.profile-section {
+    background-color: #fafbfa;
+}
+
+.couple {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    max-width: 550px;
+    width: 100%;
+    border: 1px solid rgba(45, 90, 39, 0.08);
+}
+
+.img-frame {
+    width: 190px;
+    height: 190px;
+    margin: 0 auto 25px auto;
+    border-radius: 50%;
+    padding: 8px;
+    background: #ffffff;
+    border: 2px dashed #c5a059;
+    position: relative;
+}
+
+.img-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    color: #2d5a27;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.parents-info {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.boy-wish {
+    font-size: 13.5px;
+    font-style: italic;
+    color: #7f8c8d;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+/* Elegant Countdown Layout */
+.countdown-section {
+    background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.95)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1500');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.countdown-section .title h2 {
+    color: #ffffff;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.countdown .box {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.countdown .box:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.countdown .box span {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    color: #e5c158;
+}
+
+.countdown .box p {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    color: #dddddd;
+}
+
+/* Balanced Event Component Grid */
+.event-section {
+    background-color: #ffffff;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.event-card {
+    background: #fafbfa;
+    padding: 45px 35px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border-color: rgba(197, 160, 89, 0.3);
+}
+
+.event-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.event-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    color: #2d5a27;
+    font-weight: 600;
+}
+
+.event-card .divider {
+    width: 40px;
+    height: 2px;
+    background-color: #c5a059;
+    margin: 15px auto;
+}
+
+.event-date {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.event-time {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.event-place {
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Timeline Layout for Milestone */
+.timeline-section {
+    background-color: #fafbfa;
+}
+
+.timeline {
+    max-width: 650px;
+    margin: auto;
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 2px;
+    height: 100%;
+    background-color: #eaeaea;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background-color: #c5a059;
+    border-radius: 50%;
+    border: 2px solid #fafbfa;
+    z-index: 2;
+}
+
+.timeline-content {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border-left: 3px solid #2d5a27;
+}
+
+.timeline-content h4 {
+    font-family: 'Cinzel', serif;
+    color: #2d5a27;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    font-size: 13.5px;
+    color: #666;
+}
+
+/* Map Layout Component */
+.location-section {
+    background-color: #ffffff;
+}
+
+.map-container {
+    background: #fafbfa;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 350px;
+    background: #f0f2f0;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pin-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* RSVP Form Elements Styling */
+.rsvp-section {
+    background-color: #fafbfa;
+}
+
+.rsvp-card {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #2d5a27;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"], .custom-select, textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    background-color: #fafafa;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus, .custom-select:focus, textarea:focus {
+    outline: none;
+    border-color: #c5a059;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.1);
+}
+
+.custom-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%237f8c8d' d='M0 0l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #2d5a27;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(45, 90, 39, 0.3);
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: #1e3d1a;
+}
+
+/* Structural Footer */
+footer {
+    text-align: center;
+    padding: 80px 20px;
+    background: #1e3d1a;
+    color: white;
+}
+
+footer h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: #e5c158;
+    margin-bottom: 20px;
+}
+
+footer p {
+    font-size: 14px;
+    color: #d1dcd0;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.7;
+}
+
+footer .closing-greeting {
+    font-weight: 500;
+    margin-top: 30px;
+    color: #ffffff;
+}
+
+footer .copyright {
+    font-size: 11px;
+    color: #8fa38e;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 30px;
+    margin-bottom: 0;
+}
+
+/* Floating Music Control */
+.music-controller {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 999;
+}
+
+.music-controller button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #c5a059;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.music-controller button:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Adaptive Viewports */
+@media(max-width: 768px) {
+    section {
+        padding: 60px 15px;
+    }
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .cover h1 {
+        font-size: 34px;
+    }
+    .title h2 {
+        font-size: 26px;
+    }
+    .profile-card, .rsvp-card {
+        padding: 30px 20px;
+    }
+}
