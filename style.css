@@ -1,4 +1,9 @@
 /* Global Reset & Base Typography */
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory; /* Memaksa scroll vertikal ganti per slide */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +20,14 @@ body {
 }
 
 section {
-    padding: 100px 20px;
+    padding: 80px 20px;
+    height: 100vh; /* WAJIB: Biar tiap section tingginya pas satu layar penuh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Biar konten di dalem section otomatis di tengah */
+    align-items: center;
+    scroll-snap-align: start; /* WAJIB: Menandakan awal jepretan/snap slide */
+    box-sizing: border-box;
 }
 
 .container {
