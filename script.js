@@ -1,5 +1,5 @@
 // Target date for the milestone countdown (December 12, 2026)
-const targetDate = new Date("Dec 12, 2026 09:00:00").getTime();
+const targetDate = new Date("June 14, 2026 09:00:00").getTime();
 
 const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
