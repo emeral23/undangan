@@ -1,7 +1,6 @@
 /* Global Reset & Base Typography */
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory; /* Memaksa scroll vertikal ganti per slide */
 }
 
 * {
@@ -21,12 +20,13 @@ body {
 
 section {
     padding: 80px 20px;
+    padding-top: 600px;
+    padding-bottom: 600px;
     height: 100vh; /* WAJIB: Biar tiap section tingginya pas satu layar penuh */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Biar konten di dalem section otomatis di tengah */
     align-items: center;
-    scroll-snap-align: start; /* WAJIB: Menandakan awal jepretan/snap slide */
     box-sizing: border-box;
 }
 
@@ -683,4 +683,9 @@ footer .copyright {
     color: #888888;
     font-style: italic;
     font-size: 14px;
+}
+
+#rsvp {
+    height: auto; /* Biar tingginya fleksibel nampung semua ucapan */
+    overflow-y: visible;
 }
