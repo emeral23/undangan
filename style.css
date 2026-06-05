@@ -1,4 +1,6 @@
-/* Global Reset & Base Typography */
+/* ==========================================
+   1. GLOBAL RESET & BASE TYPOGRAPHY
+   ========================================== */
 html {
     scroll-behavior: smooth;
 }
@@ -20,12 +22,9 @@ body {
 
 section {
     padding: 80px 20px;
-    padding-top: 600px;
-    padding-bottom: 600px;
-    height: 100vh; /* WAJIB: Biar tiap section tingginya pas satu layar penuh */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Biar konten di dalem section otomatis di tengah */
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
 }
@@ -33,9 +32,12 @@ section {
 .container {
     max-width: 900px;
     margin: auto;
+    width: 100%;
 }
 
-/* Custom Header Titles */
+/* ==========================================
+   2. CUSTOM HEADER TITLES
+   ========================================== */
 .title {
     text-align: center;
     margin-bottom: 50px;
@@ -69,10 +71,11 @@ section {
     font-style: italic;
 }
 
-/* Cover / Welcome Section Styles */
+/* ==========================================
+   3. COVER / WELCOME SECTION STYLES
+   ========================================== */
 .cover {
     height: 100vh;
-    scroll-snap-align: start;
     background: linear-gradient(rgba(45, 90, 39, 0.65), rgba(30, 50, 25, 0.85)), url('foto.jpeg');
     background-size: cover;
     background-position: center;
@@ -137,7 +140,9 @@ section {
     color: #f5f5f5;
 }
 
-/* Premium Buttons Layout */
+/* ==========================================
+   4. PREMIUM BUTTONS LAYOUT
+   ========================================== */
 .btn {
     display: inline-block;
     padding: 14px 36px;
@@ -161,21 +166,25 @@ section {
 
 .btn-sm {
     display: inline-block;
-    padding: 10px 24px;
+    padding: 12px 28px;
     background: #2d5a27;
     color: white;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    transition: background 0.3s;
+    box-shadow: 0 4px 12px rgba(45, 90, 39, 0.2);
+    transition: all 0.3s ease;
 }
 
 .btn-sm:hover {
     background: #1e3d1a;
+    transform: translateY(-1px);
 }
 
-/* Hero / Greeting Presentation */
+/* ==========================================
+   5. HERO / GREETING PRESENTATION
+   ========================================== */
 .hero {
     background-color: #ffffff;
     text-align: center;
@@ -204,7 +213,9 @@ section {
     margin: auto;
 }
 
-/* Profile Section Styling */
+/* ==========================================
+   6. PROFILE SECTION STYLING
+   ========================================== */
 .profile-section {
     background-color: #fafbfa;
 }
@@ -266,7 +277,9 @@ section {
     padding-top: 15px;
 }
 
-/* Elegant Countdown Layout */
+/* ==========================================
+   7. ELEGANT COUNTDOWN LAYOUT
+   ========================================== */
 .countdown-section {
     background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.95)), url('background.jpeg');
     background-size: cover;
@@ -319,7 +332,9 @@ section {
     color: #dddddd;
 }
 
-/* Balanced Event Component Grid */
+/* ==========================================
+   8. BALANCED EVENT COMPONENT GRID
+   ========================================== */
 .event-section {
     background-color: #ffffff;
 }
@@ -329,15 +344,18 @@ section {
     justify-content: center;
     align-items: center;
     gap: 40px;
+    width: 100%;
 }
 
 .event-card {
     background: #fafbfa;
-    padding: 100px 80px;
+    padding: 50px 40px;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     border: 1px solid #f0f0f0;
+    max-width: 500px;
+    width: 100%;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -384,7 +402,9 @@ section {
     line-height: 1.6;
 }
 
-/* Timeline Layout for Milestone */
+/* ==========================================
+   9. TIMELINE LAYOUT FOR MILESTONE
+   ========================================== */
 .timeline-section {
     background-color: #fafbfa;
 }
@@ -444,7 +464,9 @@ section {
     color: #666;
 }
 
-/* Map Layout Component */
+/* ==========================================
+   10. MAP LAYOUT COMPONENT
+   ========================================== */
 .location-section {
     background-color: #ffffff;
 }
@@ -455,6 +477,9 @@ section {
     padding: 15px;
     border: 1px solid #eaeaea;
     box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
 }
 
 .map-placeholder {
@@ -467,6 +492,7 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
 }
 
 .pin-icon {
@@ -474,88 +500,15 @@ section {
     margin-bottom: 10px;
 }
 
-/* RSVP Form Elements Styling */
-.rsvp-section {
-    background-color: #fafbfa;
-}
-
-.rsvp-card {
-    background: #ffffff;
-    padding: 50px 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    max-width: 600px;
-    margin: auto;
-    border: 1px solid #eee;
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: #2d5a27;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-input[type="text"], .custom-select, textarea {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #e0e0e0;
-    background-color: #fafafa;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: #333;
-    transition: all 0.3s;
-}
-
-input[type="text"]:focus, .custom-select:focus, textarea:focus {
-    outline: none;
-    border-color: #c5a059;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.1);
-}
-
-.custom-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%237f8c8d' d='M0 0l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-}
-
-.btn-submit {
-    width: 100%;
-    padding: 14px;
-    background: #2d5a27;
-    border: none;
-    color: white;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(45, 90, 39, 0.3);
-    transition: background 0.3s;
-}
-
-.btn-submit:hover {
-    background: #1e3d1a;
-}
-
-/* Structural Footer */
+/* ==========================================
+   11. STRUCTURAL FOOTER
+   ========================================== */
 footer {
     text-align: center;
     padding: 80px 20px;
     background: #1e3d1a;
     color: white;
+    width: 100%;
 }
 
 footer h2 {
@@ -587,7 +540,9 @@ footer .copyright {
     margin-bottom: 0;
 }
 
-/* Floating Music Control */
+/* ==========================================
+   12. FLOATING MUSIC CONTROL
+   ========================================== */
 .music-controller {
     position: fixed;
     right: 25px;
@@ -615,13 +570,15 @@ footer .copyright {
     transform: scale(1.1);
 }
 
-/* Responsive Adaptive Viewports */
+/* ==========================================
+   13. RESPONSIVE ADAPTIVE VIEWPORTS
+   ========================================== */
 @media(max-width: 768px) {
     section {
         padding: 60px 15px;
     }
     .event-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 25px;
     }
     .cover h1 {
@@ -630,62 +587,10 @@ footer .copyright {
     .title h2 {
         font-size: 26px;
     }
-    .profile-card, .rsvp-card {
+    .profile-card {
         padding: 30px 20px;
     }
-}
-
-.comments-section {
-    margin-top: 30px;
-    width: 100%;
-}
-
-.comments-section h3 {
-    font-size: 18px;
-    color: #2e4f24;
-    margin-bottom: 15px;
-}
-
-#comments-container {
-    max-height: 300px; /* Biar kalau ucapannya banyak, ada scrollbar internal-nya */
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-.comment-card {
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-.comment-card h4 {
-    margin: 0 0 5px 0;
-    color: #2e4f24;
-    font-size: 15px;
-}
-
-.comment-card p {
-    margin: 0 0 5px 0;
-    color: #444444;
-    font-size: 14px;
-}
-
-.comment-card small {
-    color: #999999;
-    font-size: 11px;
-    display: block;
-}
-
-.no-comment {
-    color: #888888;
-    font-style: italic;
-    font-size: 14px;
-}
-
-#rsvp {
-    height: auto; /* Biar tingginya fleksibel nampung semua ucapan */
-    overflow-y: visible;
+    .map-placeholder {
+        height: 280px;
+    }
 }
