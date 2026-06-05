@@ -1,8 +1,8 @@
 // ==========================================
 // 1. KONFIGURASI URL API BACKEND (INFINITYFREE)
 // ==========================================
-const URL_API_AMBIL = 'http://emerald.howto.rocks/ambil_ucapan.php';
-const URL_API_SIMPAN = 'http://emerald.howto.rocks/simpan_ucapan.php';
+const URL_API_AMBIL = 'https://emerald.howto.rocks/ambil_ucapan.php';
+const URL_API_SIMPAN = 'https://emerald.howto.rocks/simpan_ucapan.php';
 
 // Dom Elements
 const formUcapan = document.getElementById('form-ucapan');
