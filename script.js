@@ -1,49 +1,116 @@
-// Target date for the milestone countdown (December 12, 2026)
-const targetDate = new Date("June 14, 2026 09:00:00").getTime();
+// ==========================================
+// 1. KONFIGURASI URL API BACKEND (INFINITYFREE)
+// ==========================================
+const URL_API_AMBIL = 'http://emerald.howto.rocks/ambil_ucapan.php';
+const URL_API_SIMPAN = 'http://emerald.howto.rocks/simpan_ucapan.php';
 
-const countdownInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const timeRemaining = targetDate - now;
+// Dom Elements
+const formUcapan = document.getElementById('form-ucapan');
+const commentsContainer = document.getElementById('comments-container');
+const bgMusik = document.getElementById('musik-undangan'); // Pastiin tag <audio> lu punya id ini
+const btnMusik = document.getElementById('btn-kontrol-musik'); // Pastiin tombol musik lu punya id ini
 
-    // Time calculations for days, hours, minutes and seconds
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+// ==========================================
+// 2. FUNGSI MENAMPILKAN HISTORY UCAPAN DARI DATABASE
+// ==========================================
+function muatUcapan() {
+    fetch(URL_API_AMBIL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Jaringan bermasalah saat mengambil data.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Kosongkan wadah ucapan yang lama
+            commentsContainer.innerHTML = ''; 
+            
+            // Jika belum ada data ucapan di database
+            if (data.length === 0) {
+                commentsContainer.innerHTML = '<p class="no-comment">Belum ada ucapan. Jadi yang pertama mengirim doa!</p>';
+                return;
+            }
 
-    // Render results to HTML elements safely
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-
-    if (daysEl) daysEl.innerHTML = days;
-    if (hoursEl) hoursEl.innerHTML = hours;
-    if (minutesEl) minutesEl.innerHTML = minutes;
-    if (secondsEl) secondsEl.innerHTML = seconds;
-
-    // If the countdown is finished, clear interval
-    if (timeRemaining < 0) {
-        clearInterval(countdownInterval);
-        if (daysEl) daysEl.innerHTML = "0";
-        if (hoursEl) hoursEl.innerHTML = "0";
-        if (minutesEl) minutesEl.innerHTML = "0";
-        if (secondsEl) secondsEl.innerHTML = "0";
-    }
-}, 1000);
-
-// Audio background controller logic
-const bgMusic = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-
-function toggleMusic() {
-    if (!bgMusic) return;
-
-    if (bgMusic.paused) {
-        bgMusic.play().catch(err => console.log("Audio play deferred setup: ", err));
-        if (musicBtn) musicBtn.innerHTML = "⏸️";
-    } else {
-        bgMusic.pause();
-        if (musicBtn) musicBtn.innerHTML = "🎵";
-    }
+            // Looping data ucapan dan render satu per satu ke HTML
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'comment-card';
+                card.innerHTML = `
+                    <h4>${escapeHTML(item.nama)}</h4>
+                    <p>${escapeHTML(item.ucapan)}</p>
+                    <small>${item.waktu}</small>
+                `;
+                commentsContainer.appendChild(card);
+            });
+        })
+        .catch(error => {
+            console.error('Gagal memuat ucapan:', error);
+            commentsContainer.innerHTML = '<p class="no-comment">Gagal memuat daftar ucapan.</p>';
+        });
 }
+
+// Fungsi pengaman (XSS Protection) agar tamu gak bisa masukin script aneh-aneh di form
+function escapeHTML(str) {
+    return str.replace(/[&<>'"]/g, 
+        tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        }[tag] || tag)
+    );
+}
+
+// ==========================================
+// 3. FUNGSI KIRIM UCAPAN BARU (SUBMIT FORM)
+// ==========================================
+if (formUcapan) {
+    formUcapan.addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah halaman reload otomatis
+
+        const formData = new FormData(formUcapan);
+
+        fetch(URL_API_SIMPAN, {
+            method: 'POST',
+            body: formData // Mengirim data nama & ucapan di background
+        })
+        .then(response => response.json())
+        .then(res => {
+            if (res.status === 'success') {
+                alert(res.message);
+                formUcapan.reset(); // Mengosongkan kembali form inputan setelah sukses
+                muatUcapan();       // Refresh daftar ucapan agar pesan baru langsung muncul
+            } else {
+                alert('Gagal mengirim: ' + res.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error saat mengirim ucapan:', error);
+            alert('Terjadi kesalahan jaringan saat mengirim ucapan.');
+        });
+    });
+}
+
+// ==========================================
+// 4. KONTROL AUDIO / MUSIK LATAR (OPSIONAL)
+// ==========================================
+if (btnMusik && bgMusik) {
+    btnMusik.addEventListener('click', function() {
+        if (bgMusik.paused) {
+            bgMusik.play();
+            btnMusik.classList.remove('paused');
+        } else {
+            bgMusik.pause();
+            btnMusik.classList.add('paused');
+        }
+    });
+}
+
+// ==========================================
+// 5. INITIALIZATION (RUN WHEN PAGE LOADED)
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Jalankan fungsi memuat ucapan otomatis saat web pertama kali dibuka
+    muatUcapan();
+});

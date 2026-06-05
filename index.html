@@ -151,27 +151,29 @@
     </div>
 </section>
 
-<!-- RSVP & Wishes -->
-<section class="rsvp-section">
-    <div class="container">
-        <div class="title">
-            <h2>RSVP & Ucapan Doa</h2>
-            <p class="subtitle">Berikan konfirmasi kehadiran dan doa restu Anda</p>
-        </div>
-
-        <div class="rsvp-card">
-            <div class="form-group">
-                <label>Nama Lengkap</label>
-                <input type="text" placeholder="Masukkan nama Anda">
-            </div>
-            <div class="form-group">
-                <label>Ucapan Doa Restu</label>
-                <textarea rows="4" placeholder="Tulis ucapan selamat dan doa terbaik untuk Emerelo..."></textarea>
-            </div>
-            <button class="btn-submit">Kirim Ucapan</button>
-        </div>
+<!-- Cari tag form lu, pastiin ada id="form-ucapan" -->
+<form id="form-ucapan">
+    <div class="form-group">
+        <label for="nama">NAMA LENGKAP</label>
+        <!-- Pastiin ada id="nama" dan name="nama" -->
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
     </div>
-</section>
+
+    <div class="form-group">
+        <label for="ucapan">UCAPAN DOA RESTU</label>
+        <!-- Pastiin ada id="ucapan" dan name="ucapan" -->
+        <textarea id="ucapan" name="ucapan" placeholder="Tulis ucapan selamat..." required></textarea>
+    </div>
+
+    <button type="submit">KIRIM UCAPAN</button>
+</form>
+
+<!-- TAMBAHIN INI TEPAT DI BAWAH </form> -->
+<div class="comments-section">
+    <h3>Ucapan dari Para Tamu:</h3>
+    <!-- Wadah kosong tempat history pesan muncul otomatis -->
+    <div id="comments-container"></div>
+</div>
 
 <!-- Footer -->
 <footer>
