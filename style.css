@@ -183,9 +183,13 @@ section {
 }
 
 /* ==========================================
-   5. HERO / GREETING PRESENTATION
+5. HERO / GREETING PRESENTATION
    ========================================== */
 .hero {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('wayang.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: #ffffff;
     text-align: center;
     border-bottom: 1px solid #eaeaea;
