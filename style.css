@@ -340,7 +340,13 @@ section {
    8. BALANCED EVENT COMPONENT GRID
    ========================================== */
 .event-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('wayang.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     background-color: #ffffff;
+    text-align: center;
+    border-bottom: 1px solid #eaeaea;
 }
 
 .event-grid {
@@ -411,61 +417,93 @@ section {
    ========================================== */
 .timeline-section {
     background-color: #fafbfa;
+    padding: 100px 20px;
 }
 
 .timeline {
-    max-width: 650px;
-    margin: auto;
+    max-width: 850px;
+    margin: 0 auto;
     position: relative;
-    padding-left: 30px;
 }
 
+/* Garis vertikal utama tepat di tengah layar */
 .timeline::before {
     content: '';
     position: absolute;
-    left: 5px;
-    top: 5px;
+    left: 50%;
+    top: 0;
     width: 2px;
     height: 100%;
-    background-color: #eaeaea;
+    background: linear-gradient(to bottom, #eaeaea, #c5a059, #eaeaea);
+    transform: translateX(-50%);
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
 }
 
+/* Selang-seling item: item ganjil di kiri, item genap di kanan */
+.timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+/* Titik lingkaran di garis tengah */
 .timeline-dot {
     position: absolute;
-    left: -30px;
-    top: 6px;
-    width: 12px;
-    height: 12px;
-    background-color: #c5a059;
+    left: 50%;
+    top: 30px;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border: 3px solid #c5a059;
     border-radius: 50%;
-    border: 2px solid #fafbfa;
+    transform: translateX(-50%);
     z-index: 2;
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+    transition: background-color 0.3s ease;
 }
 
+.timeline-item:hover .timeline-dot {
+    background-color: #2d5a27;
+}
+
+/* Konten kartu cerita */
 .timeline-content {
     background: #ffffff;
-    padding: 25px;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    border-left: 3px solid #2d5a27;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border-left: 4px solid #2d5a27;
+    width: 45%;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(45, 90, 39, 0.08);
 }
 
 .timeline-content h4 {
     font-family: 'Cinzel', serif;
     color: #2d5a27;
-    margin-bottom: 8px;
-    font-size: 16px;
+    margin-bottom: 12px;
+    font-size: 18px;
     font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .timeline-content p {
-    font-size: 13.5px;
-    color: #666;
+    font-size: 14px;
+    color: #555555;
+    line-height: 1.7;
 }
 
 /* ==========================================
@@ -596,5 +634,25 @@ footer .copyright {
     }
     .map-placeholder {
         height: 280px;
+    }
+    .timeline::before {
+        left: 20px;
+        transform: none;
+    }
+    
+    .timeline-item {
+        justify-content: flex-start !important;
+        padding-left: 45px;
+    }
+    
+    .timeline-dot {
+        left: 20px;
+        transform: translateX(-50%);
+        top: 25px;
+    }
+    
+    .timeline-content {
+        width: 100%;
+        padding: 20px;
     }
 }
